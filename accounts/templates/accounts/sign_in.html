@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}Sign In | {{ super }}{% endblock %}
+
+{% block body %}
+  <!-- HOME SECTION -->
+  <header id="home-section">
+        <!-- <div class="dark-overlay"> -->
+          <!-- <div class="home-inner"> -->
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 d-none d-lg-block">
+                  <h1 class="display-4">Build a profile to gain Job Opportunity</h1>
+                  <div class="d-flex flex-row">
+                    <div class="p-4 align-self-start">
+                      <i class="fa fa-check"></i>
+                    </div>
+                  
+                    <div class="p-4 align-self-end">
+                        <h2>Welcome Back</h2>
+                     <h3>Remember  Username: Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</h3>
+                     <h3>Remember that your password:</h3>
+                     <ul>
+                         <li>Contains at least 14 characters.</li>
+                         <li>Must use of both uppercase and lowercase letters</li>
+                         <li> Must include of one or more numerical digits</li>
+                         <li>Must include of special characters, such as @, #, $</li>
+                         <li>Your password can't be too similar to your other personal information</li>
+                     </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="card text-left card-form">
+                    <div class="card-body">
+                      <h2>Glad to have you back!!! </h2>
+                      <p>Please fill out this form to Login</p>
+                      <form method="POST" action="{% url 'accounts:sign_in' %}">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" class="bg-primary button-primary" value="Sign In">
+                        </form>
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+            </div>
+      </header>
+
+{% endblock %}

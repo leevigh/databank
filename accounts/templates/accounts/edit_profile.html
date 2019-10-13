@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Edit Profile | {{ user }} {{ super }}{% endblock %}
+
+{% block body %}
+  <!-- HOME SECTION -->
+  <header id="home-section">
+        <!-- <div class="dark-overlay"> -->
+          <!-- <div class="home-inner"> -->
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 d-none d-lg-block">
+                  <h1 class="display-4">Build <strong>social profiles</strong> and gain revenue and <strong>profits</strong></h1>
+                  <div class="d-flex flex-row">
+                    <div class="p-4 align-self-start">
+                      <i class="fa fa-check"></i>
+                    </div>
+                  
+                    <div class="p-4 align-self-end">
+                        <h2>A Simple Guide For Registration</h2>
+                     <h3>Choose A Username: Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</h3>
+                     <h3>Create a password:</h3>
+                     <ul>
+                         <li>Your password must contain at least 14 characters.</li>
+                         <li>Must use of both uppercase and lowercase letters</li>
+                         <li> Must include of one or more numerical digits</li>
+                         <li>Must include of special characters, such as @, #, $</li>
+                         <li>Your password can't be too similar to your other personal information</li>
+                     </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="card text-left card-form">
+                    <div class="card-body">
+                      <div class="grid-100">
+                            <h1>Edit Profile</h1>
+                            <form method="POST" actions="" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input type="submit" class="button" value="save" />
+                            </form>
+                        </div>
+                  </div>
+                  </div>
+                  </div>
+            </div>
+      </header>
+
+{% endblock %}

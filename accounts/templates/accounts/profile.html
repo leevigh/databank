@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% load static from staticfiles %}
+
+{% block title %}Profile | {{ user }} {{ super }}{% endblock %}
+
+{% block body %}
+    <h1>Profile</h1>
+    <div class="grid-20">
+        <img src="{{ profile.avatar.url }}" alt="No image" height="100vh"; width="100%">
+        <ul>
+            <li class="list-group-item"><a href="{% url 'accounts:edit_profile' %}">Edit Profile</a></li>
+            <li class="list-group-item"><a href="{% url 'accounts:change_password' %}">Change Password</a></li>
+            <li class="list-group-item"><a href="{% url 'accounts:profile' %}">Preview My Profile</a></li>
+            <li class="list-group-item"><a href="{% url 'accounts:profile' %}">Check Updates<span class="badge badge-primary badge-pill">0</span></a></li>            
+
+        </ul>
+    </div>
+    <div class="grid-80">
+        {% if not profile.first_name %}
+            <p>Your profile empty.</p>
+            <a href="{% url 'accounts:edit_profile' %}">Add some info</a>
+        {% else %}
+            <div class="grid-50">
+                <p><span class="underline">First Name</span>: {{ profile.first_name }}</p>
+                <p><span class="underline">Email</span>: {{ profile.email }}</p>
+                <p><span class="underline">Village</span>: {{ profile.village }}</p>
+                <p><span class="underline">Phone</span>: {{ profile.phone_number }}</p>
+                <p><span class="underline">Skills</span>: {{ profile.skills }}</p>
+            </div>
+            <div class="grid-50">
+                <p><span class="underline">Last Name</span>: {{ profile.last_name }}</p>
+                <p><span class="underline">Birth Date</span>: {{ profile.birth_date }}</p>
+                <p><span class="underline">Course of study</span>: {{ profile.course_of_study }}</p>
+                <p><span class="underline">Educational Qualification</span>: {{ profile.educational_qualification }}</p>
+                <p><span class="underline">Address</span>: {{ profile.address }}</p>
+                <p><span class="underline">Permanent Home Address</span>: {{ profile.permanent_address }}</p>
+            </div>
+            <div class="grid-100">
+                <p><span class="underline">Bio</span>: {{ profile.bio }}</p>
+                <p><span class="underline">LGA</span>: {{ profile.lga }}</p>
+                <p><span class="underline">Ward</span>: {{ profile.ward }}</p>
+                <!-- <p><span class="underline">Email</span>: {{ profile.email }}</p> -->
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

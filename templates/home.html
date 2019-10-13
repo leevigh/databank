@@ -1,0 +1,112 @@
+{% extends 'layout.html' %}
+{% block body %}
+  {% if user.is_authenticated %}
+  <div class="container">
+    <div class="grid-20">
+        <ul class="left-nav">
+            <li class="list-group-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="list-group-item"><a href="{% url 'accounts:profile' %}">Check Updates<span class="badge badge-primary badge-pill">0</span></a></li>            
+            <li class="list-group-item"><a href="{% url 'accounts:profile' %}">Profile</a></li>
+            <li class="list-group-item"><a href="{% url 'accounts:edit_profile' %}">Edit My Profile</a></li>
+            <li class="list-group-item"><a href="{% url 'accounts:profile' %}">Preview My Profile</a></li>
+            <li class="list-group-item"><a href="{% url 'accounts:change_password' %}">Change My Password</a></li>
+        </ul>
+    </div>
+    </div>
+    {% endif %}
+    <div class="{% if user.is_authenticated %}grid-75{% else %}grid-100{% endif %}">
+        {% if user.is_authenticated %}
+            {% if profile.first_name %}
+              <h1>Welcome {{ profile.first_name }}!</h1>
+            {% endif %}
+            <!-- Profile Page -->
+            <!-- Welcome Note -->
+<h1>Welcome to your profile</h1>
+<p>Build a secure profile with Gban, a Secure DataBank that would help you build your online CV.</p>
+<a href="{% url 'accounts:profile' %}">View My Profile</a>
+<!-- Welcome Note -->
+<header id="home-section">
+        <div class="row">
+
+          <div class="col-lg-6 bg-primary col px-md-5">
+              <div class="text-center card-form">
+                <div class="card card-body">
+                  <div class="row"></div>
+                  <div>
+                    <a href="https://www.facebook.com/dridgyang/">
+                    <img src="https://fbdglobalnews.files.wordpress.com/2019/07/fb_img_15617434165368589.jpg?w=648" alt="Senator I.D. Gyang" style="color: #000; border-radius: 20%; height:40vh">
+                  <h3 style="color: #000;">Senator I.D. Gyang</h3>
+                  <p style="color: #000">Plateau North Senatorial District</p></a>
+              </div>
+                </div>
+                </div>
+                </div>
+          <!-- Left Banner Code -->
+          <!-- </div> -->
+          <div class="col-lg-6 bg-primary col px-md-5" style="padding-top: 3vh;">
+              <div class="text-center card-form">
+                <div class="card card-body">
+                  <div>
+                  <h3 style="color: #000;">Meet the Senator</h3>
+                  <p>He is a member of the Federal House of Representatives, representing the Barkin Ladi/Riyom Federal constituency of Plateau State.</p>
+                  <button class="btn btn-primary bg-primary" data-toggle="modal" data-target="#readModal">Read More About Him</button>
+              <ul>
+                  <li>I believe that all Nigerians deserve to observe, understand, and give inputs into the activities of our representatives in government;</li>
+                  <!-- <li>I believe accountability and transparency are essential to government, and;</li> -->
+                   <li>I also strongly believe in two-way communication channels where I can get direct unfiltered feedback from the people of my constituency, and Nigerians as a whole.</li>
+              </ul>
+              </div>
+                </div>
+                </div>
+                </div>
+         </header>
+         <!-- end sample -->
+
+{% else %}
+
+  <h1>Welcome!</h1>
+  <p>Register or login to Build Your Profile!</p>
+  <h2>Are You New?
+  <a href="{% url 'accounts:sign_up' %}">Register here</a> Existing User? <a href="{% url 'accounts:sign_in' %}">Login Here </a></h2>
+  <!-- Welcome Note -->
+<header id="home-section">
+        <div class="row">
+
+          <div class="col-lg-6 bg-primary col px-md-5">
+              <div class="text-center card-form">
+                <div class="card card-body">
+                  <div class="row"></div>
+                  <div>
+                    <a href="https://www.facebook.com/dridgyang/">
+                    <img src="https://fbdglobalnews.files.wordpress.com/2019/07/fb_img_15617434165368589.jpg?w=648" alt="Senator I.D. Gyang" style="color: #000; border-radius: 20%; height:40vh">
+                  <h3 style="color: #000;">Senator I.D. Gyang</h3>
+                  <p style="color: #000">Plateau North Senatorial District</p></a>
+              </div>
+                </div>
+                </div>
+                </div>
+          <!-- Left Banner Code -->
+          <!-- </div> -->
+          
+          <div class="col-lg-6 bg-primary col px-md-5" style="padding-top: 3vh;">
+              <div class="text-center card-form">
+                <div class="card card-body">
+                  <div>
+                  <h3 style="color: #000;">Meet the Senator</h3>
+                  <p>He is a member of the Federal House of Representatives, representing the Barkin Ladi/Riyom Federal constituency of Plateau State.</p>
+                  <button class="btn btn-primary bg-primary" data-toggle="modal" data-target="#readModal">Read More About Him</button>
+              <ul>
+                  <li>I believe that all Nigerians deserve to observe, understand, and give inputs into the activities of our representatives in government;</li>
+                  <!-- <li>I believe accountability and transparency are essential to government, and;</li> -->
+                   <li>I also strongly believe in two-way communication channels where I can get direct unfiltered feedback from the people of my constituency, and Nigerians as a whole.</li>
+              </ul>
+              </div>
+                </div>
+                </div>
+                </div>
+         </header>
+         
+         <!-- end sample -->
+   {% endif %}
+    </div>
+{% endblock %}
